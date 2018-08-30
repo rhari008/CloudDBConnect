@@ -1,0 +1,49 @@
+script.
+ function executeR(){
+ 	var n = 28;
+    var time = 10000;
+    var progress = document.querySelector('.dots');
+    var dot = [];
+    var counter = n - 1;
+    var start = 0;
+ 	document.getElementById('logs').value = 'Verifying R connection...';
+ 	for (var i = 0; i < n; i++) {
+     dot[i] = document.createElement('div');
+     dot[i].classList.add('dot');
+     progress.appendChild(dot[i]);
+    } 
+    //Start the progress bar..
+    var go = setInterval(function() {
+    if (!counter) 
+    {
+      clearInterval(go);
+      document.getElementById('logs').value = 'It works like charm';
+    }
+     dot[start].style.background = 'gray';
+     counter--;
+     start++;
+    }, time / n)
+    
+    //Call the function to verify R connection
+    
+ }
+style.
+ .dot{
+   background: white;
+   border-radius: 50%;
+   display: inline-block;
+   height: 5px;
+   margin: 2px;
+   width: 5px;
+  };
+
+table(style='width:100%', border='1')
+    tr
+      th(style='width:45%') Executions 
+      th Output and Log
+    tr
+      td 
+       input(type='button' value='Verify R connection' onclick='executeR()' width='40')
+      td(id='logarea' name='logarea')
+       <div class="dots"></div>
+       textarea(type='text' readonly=true name='logs' id='logs')(style='border: none; width: 100%')

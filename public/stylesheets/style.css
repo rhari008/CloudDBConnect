@@ -1,0 +1,16 @@
+table, th, td {
+      border: 1px solid black;}
+textarea {
+    border: none;
+    overflow: auto;
+    outline: none;
+}
+
+.dot{
+  background: yellow;
+  border-radius: 50%;
+  display: inline-block;
+  height: 5px;
+  margin: 2px;
+  width: 5px;
+ }
